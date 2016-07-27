@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in retURNer.gemspec
 gemspec
+gem 'blizzard-client',
+    git: 'git@github.com:fadendaten/blizzard-client.git',
+    require: 'blizzard-client',
+    branch: 'master'
