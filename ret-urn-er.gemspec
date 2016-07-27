@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'retURNer/version'
+require 'ret-urn-er/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'retURNer'
@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['fho-wtag']
   spec.email         = ['faruk.hossain@welltravel.com']
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = 'summary'
+  spec.description   = 'description'
   spec.homepage      = ''
   spec.license       = 'MIT'
 
