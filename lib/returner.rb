@@ -1,4 +1,4 @@
-require 'ret-urn-er/version'
+require 'returner/version'
 
 module RetURNer
   def self.hello(str)

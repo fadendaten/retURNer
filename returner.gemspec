@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ret-urn-er/version'
+require 'returner/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'ret-urn-er'
+  spec.name          = 'returner'
   spec.version       = RetURNer::VERSION
   spec.authors       = ['fho-wtag']
   spec.email         = ['faruk.hossain@welltravel.com']
