@@ -1,3 +1,3 @@
-module RetURNer
+class RetURNer
   VERSION = "0.1.0"
 end
