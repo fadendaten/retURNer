@@ -4,14 +4,10 @@ require 'blizzard-client'
 class RetURNer
   LOOKUPS = {
     customer: ->(id) { Blizzard::Client::Customer.find(id: id) },
-    order: ->(id, company) { Blizzard::Client::Transaction.by_customer(id: id, company: company) },
-    voucher: ->(id) { Blizzard::Client::Voucher.by_customer(id: id) }
   }.freeze
 
   TYPE_MAPPING = {
-    customer: 'urn:fadendaten:customer',
-    order: 'urn:fadendaten:webshop:order',
-    voucher: 'urn:fadendaten:voucher'
+    customer: 'urn:fadendaten:customer'
   }.freeze
 
   attr_reader :urn
@@ -34,23 +30,19 @@ class RetURNer
   end
 
   def fetch
-    return LOOKUPS[type].call(id, other_id) if other_id
     LOOKUPS[type].call(id)
   end
 
   def splitted_urn
-    @splitted_urn ||= urn.match(/(?<type>.+):(?<id>\d+)\z/) ||
-                      urn.match(/(?<type>.+):(?<id>\d+):(?<other_id>.+)\z/)
+    @splitted_urn ||= urn.match(/(?<type>.+):(?<id>\d+)\z/)
   end
 
   def to_s
     urn
   end
 
-  def self.for(type: nil, id: nil, other_id: nil)
-    urn = "#{TYPE_MAPPING[type]}"
-    urn += ":#{id}" if id
-    urn += ":#{other_id}" if other_id
+  def self.for(type: nil, id: nil)
+    urn = "#{TYPE_MAPPING[type]}:#{id}"
     new(urn)
   end
 end
