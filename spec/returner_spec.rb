@@ -45,8 +45,12 @@ describe RetURNer do
     specify{ expect(subject.splitted_urn).not_to be nil }
   end
 
-  describe 'for' do
+  describe '.for' do
     specify{ expect(RetURNer.for(params)).to be_a_kind_of(RetURNer) }
+  end
+
+  describe '#to_s' do
+    specify{ expect(subject.to_s).to eq 'urn:fadendaten:webshop:order:5:NILE' }
   end
 
   describe '.fetch' do
