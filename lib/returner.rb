@@ -24,11 +24,6 @@ class RetURNer
     @type ||= TYPE_MAPPING.invert[splitted_urn[:type]]
   end
 
-  def other_id
-    splitted_urn_hash = Hash[ splitted_urn.names.zip( splitted_urn.captures ) ]
-    @other_id ||= splitted_urn_hash['other_id']
-  end
-
   def fetch
     LOOKUPS[type].call(id)
   end
